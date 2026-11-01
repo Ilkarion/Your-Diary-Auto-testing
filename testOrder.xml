@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="2" >
+    <test name="IntroPage, SignPage, CreateEntry" >
+        <classes>
+            <class name="IntroPageTests" />
+            <class name="SignPageTests" />
+            <class name="CreateEntryTests" />
+        </classes>
+    </test>
+</suite>
+
+<!--<suite name="Parallel Suite"-->
+<!--       parallel="classes"-->
+<!--       thread-count="4">-->
+
+<!--<test name="All Tests">-->
+<!--    <classes>-->
+<!--        <class name="IntroPageTests"/>-->
+<!--        <class name="SignPageTests"/>-->
+<!--        <class name="CreateEntryTests"/>-->
+<!--    </classes>-->
+<!--</test>-->
+
+<!--</suite>-->
