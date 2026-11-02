@@ -49,7 +49,6 @@ public class CreateEntryTests extends BaseTest {
 
     @Test(priority = 2)
     public void verify_new_entry_ui_elements() {
-        sign_in_and_navigate_to_user_page();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(65));
         navigate_to_new_entry_page();
 

@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,6 +14,7 @@ public class IntroPageTests extends BaseTest{
 
     @Test
     public void changeAppTheme() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(65));
         IntroPage introPage = new IntroPage(driver);
         WebElement theme_btn = introPage.getBtn_change_theme();
         // Check if theme is dark by default.
@@ -20,6 +22,7 @@ public class IntroPageTests extends BaseTest{
         Assert.assertEquals(theme_default, "dark", "Default theme should be dark");
 
         // Switch theme from Dark to Light. Check to see if the theme has changed.
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label=\"toggle-theme\"]")));
         theme_btn.click();
         String theme_light = introPage.getThemeText();
         String lightColor_h1 = introPage.getCssTextColor_h1();
@@ -28,6 +31,7 @@ public class IntroPageTests extends BaseTest{
 
 
         // Switch theme from Light to Dark. Check to see if the theme has changed.
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label=\"toggle-theme\"]")));
         theme_btn.click();
         String theme_dark = introPage.getThemeText();
         String darkColor_h1 = introPage.getCssTextColor_h1();
@@ -40,10 +44,12 @@ public class IntroPageTests extends BaseTest{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         IntroPage introPage = new IntroPage(driver);
 
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label=\"language\"]")));
         introPage.getBtn_change_lang().click();
 
 
-        // Switch language from English top Russian. Verify that the English language is applied correctly.
+        // Switch language from English to Russian. Verify that the English language is applied correctly.
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label=\"language\"]")));
         introPage.getBtn_lang_en().click();
         wait.until(ExpectedConditions.urlContains("/en"));
 
@@ -54,6 +60,7 @@ public class IntroPageTests extends BaseTest{
         Assert.assertEquals(text_en_h1, "Cosmic Diary");
 
         // Switch language from Russian to English. Verify that the Russian language is applied correctly
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label=\"language\"]")));
         introPage.getBtn_change_lang().click();
         introPage.getBtn_lang_ru().click();
         wait.until(ExpectedConditions.urlContains("/ru"));

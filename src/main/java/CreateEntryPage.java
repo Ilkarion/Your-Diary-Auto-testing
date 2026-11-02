@@ -1,6 +1,7 @@
 import org.openqa.selenium.*;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Objects;
@@ -151,7 +152,8 @@ public class CreateEntryPage {
 
         String uiDate2 = getDateField2().getText();
 
-        LocalDate today = LocalDate.now();
+        ZoneId appZone = ZoneId.of("Europe/Helsinki");
+        LocalDate today = LocalDate.now(appZone);
         Locale ruLocale = Locale.forLanguageTag("ru");
 
         String expectedDateText = today.format(DateTimeFormatter.ofPattern("EEEE, d MMMM yyyy 'г.'", ruLocale)).toLowerCase().trim();
