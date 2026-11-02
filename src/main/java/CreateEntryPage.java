@@ -1,5 +1,8 @@
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -55,7 +58,11 @@ public class CreateEntryPage {
         return driver.findElement(tag_field_address);
     }
 
-    public WebElement getTagSuggestion() {return driver.findElement(tag_suggestion_address);}
+    public WebElement getTagSuggestion() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='suggestItem']")));
+        return driver.findElement(tag_suggestion_address);
+    }
 
     public WebElement getColorTagInput() {
         return driver.findElement(color_tag_input_address);
@@ -139,7 +146,6 @@ public class CreateEntryPage {
 
     public boolean isSuccessMessageDisplayed() {
         WebElement msg = getSuccessMessage();
-        System.out.println(msg.getText());
         return msg.isDisplayed() && Objects.equals(msg.getText(), "New record created");
     }
 
