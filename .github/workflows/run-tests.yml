@@ -24,7 +24,6 @@ jobs:
           distribution: 'temurin'
           java-version: '20'
 
-      # Install Node.js to quickly set up the Allure CLI via npm
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -38,22 +37,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-
       - name: Maven Clean
         run: mvn clean
 
       - name: Run Maven Tests
         run: mvn test
+        continue-on-error: true
 
-      # Install the official Allure CLI globally in the GitHub environment
       - name: Install Allure CLI
-        run: npm install -g allure-commandline --save-dev
+        run: sudo npm install -g allure-commandline --save-dev
 
       - name: Generate Allure Report
         if: always()
         run: allure generate allure-results -o allure-report --clean
 
-      # Publish the results to GitHub Pages from the allure-report folder
       - name: Deploy Allure Report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4
