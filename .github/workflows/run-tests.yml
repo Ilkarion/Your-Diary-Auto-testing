@@ -3,6 +3,9 @@ name: Run Selenium Tests
 on:
   repository_dispatch:
     types: [run-selenium-tests]
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -21,16 +24,39 @@ jobs:
           distribution: 'temurin'
           java-version: '20'
 
+      # Install Node.js to quickly set up the Allure CLI via npm
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Cache Maven Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+
+      - name: Maven Clean
+        run: mvn clean
+
       - name: Run Maven Tests
-        run: mvn clean test
+        run: mvn test
+
+      # Install the official Allure CLI globally in the GitHub environment
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline --save-dev
 
       - name: Generate Allure Report
         if: always()
-        run: mvn io.qameta.allure:allure-maven:3.1.0:report
+        run: allure generate allure-results -o allure-report --clean
 
+      # Publish the results to GitHub Pages from the allure-report folder
       - name: Deploy Allure Report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: target/site/allure-maven-plugin
+          publish_dir: allure-report
