@@ -2,7 +2,6 @@
 - Intro Page
 - Sign Page
 - Create Diary Page through UI Sign Page
-- Edit Diary Page through API Sign 
 
 ### Intro Page — Test Cases
 
