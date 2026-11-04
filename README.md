@@ -10,7 +10,7 @@ Java + Selenium + TestNG + Maven + test report: allure
 
 
 ## Example of **report** from Allure 
-:-----------------------------------------------------:
+
 
 Passed report        |  Attached image to bug by script
 :-------------------------:|:-------------------------:
@@ -25,4 +25,4 @@ Passed summary report        |  Graphs
 Test from cmd      |  
 :-------------------------:|:-------------------------:
 ![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/report-run-from-commandLine.png) 
-:-----------------------------------------------------:
+
