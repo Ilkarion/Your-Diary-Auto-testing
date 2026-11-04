@@ -16,7 +16,7 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--window-size=1920,1080");
         options.addArguments("--lang=ru-RU");
-//        options.addArguments("--headless=new");
+        options.addArguments("--headless=new");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
 
