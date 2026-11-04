@@ -13,4 +13,4 @@ Java + Selenium + TestNG + Maven + test report: allure
 
 Solarized dark             |  Solarized Ocean
 :-------------------------:|:-------------------------:
-![](https://...Dark.png)  |  ![](https://...Ocean.png)
+![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/allure_test_report01.png))  |  ![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/bug_report.png)
