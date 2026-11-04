@@ -62,10 +62,17 @@ public class IntroPageTests extends BaseTest {
                         .xpath("//button[@aria-label=\"language\"]")))
                 .click();
 
-        while(!introPage.getMenu_change_lang().isEnabled()) {
-            wait.until(ExpectedConditions.elementToBeClickable(By
-                    .xpath("//button[@aria-label=\"language\"]")))
-                    .click();
+        while (true) {
+            try {
+                if (introPage.getMenu_change_lang().isDisplayed()) {
+                    break;
+                }
+            } catch (org.openqa.selenium.NoSuchElementException | org.openqa.selenium.StaleElementReferenceException e) {
+                wait.until(ExpectedConditions.elementToBeClickable(By
+                                .xpath("//button[@aria-label=\"language\"]")))
+                        .click();
+                System.out.println("Cycle");
+            }
         }
 
         wait.until(ExpectedConditions.elementToBeClickable(By
