@@ -44,11 +44,10 @@ public class IntroPageTests extends BaseTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         IntroPage introPage = new IntroPage(driver);
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label=\"language\"]")));
-        introPage.getBtn_change_lang().click();
-
-
         // Switch language from English to Russian. Verify that the English language is applied correctly.
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By
+                .xpath("//button[@aria-label=\"language\"]")))
+                .click();
         introPage.getBtn_lang_en().click();
         wait.until(ExpectedConditions.urlContains("/en"));
 
@@ -59,9 +58,10 @@ public class IntroPageTests extends BaseTest {
         Assert.assertEquals(text_en_h1, "Cosmic Diary");
 
         // Switch language from Russian to English. Verify that the Russian language is applied correctly
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label=\"language\"]")));
-        introPage.getBtn_change_lang().click();
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class=\"langMenu\"]/a[@href=\"/ru\"]")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By
+                .xpath("//button[@aria-label=\"language\"]")))
+                .click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"langMenu\"]/a[@href=\"/ru\"]")));
         introPage.getBtn_lang_ru().click();
         wait.until(ExpectedConditions.urlContains("/ru"));
 
