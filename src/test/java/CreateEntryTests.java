@@ -25,8 +25,10 @@ public class CreateEntryTests extends BaseTest {
         wait.until(ExpectedConditions.urlContains("/sign"));
 
         // Sign in with valid email and password
-        signPage.enterEmail("mastercomponents6@gmail.com");
-        signPage.enterPassword("passworD_2006");
+        public static final String MY_GMAIL = System.getenv("MY_GMAIL");
+        public static final String MY_GMAIL_PASSWORD = System.getenv("MY_GMAIL_PASSWORD");
+        signPage.enterEmail(MY_GMAIL);
+        signPage.enterPassword(MY_GMAIL_PASSWORD);
         signPage.clickSubmitButton();
 
         // Verify correct redirection through /checkAuthUser page to the /user page
