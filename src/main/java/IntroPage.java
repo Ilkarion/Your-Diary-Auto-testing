@@ -10,7 +10,7 @@ public class IntroPage {
     // Locators
     private final By btn_getStarted_address = By.xpath("//a[@href=\"/checkAuthUser\" and @class=\"homePageBtn\"]");
     private final By btn_change_lang_address = By.xpath("//button[@aria-label=\"language\"]");
-    private final By lang_ru_address = By.xpath("//a[text()=\"RU\"]");
+    private final By lang_ru_address = By.xpath("//div[@class=\"langMenu\"]/a[@href=\"/ru\"]");
     private final By lang_en_address = By.xpath("//a[text()=\"EN\"]");
     private final By btn_change_theme_address = By.xpath("//button[@aria-label=\"toggle-theme\"]");
     private final String header1_address = "//h1[@class=\"headerHomePage\"]";
