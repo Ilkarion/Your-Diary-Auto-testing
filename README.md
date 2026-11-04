@@ -11,6 +11,17 @@ Java + Selenium + TestNG + Maven + test report: allure
 
 ## Example of **report** from Allure 
 
-Solarized dark             |  Solarized Ocean
 :-------------------------:|:-------------------------:
-![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/allure_test_report01.png))  |  ![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/bug_report.png)
+Passed report        |  Attached image to bug by script
+:-------------------------:|:-------------------------:
+![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/passed_report2.png) | ![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/bug_report.png)
+:-------------------------:|:-------------------------:
+Passed summary report        |  Graphs
+:-------------------------:|:-------------------------:
+![](http://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/passed_report.png) | ![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/graphs.png)
+4 Stream testing       |  1 Stream testing
+:-------------------------:|:-------------------------:
+![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/4-stream-report.png) | ![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/report.png)
+Test from cmd      |  
+:-------------------------:|:-------------------------:
+![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/report-run-from-commandLine.png) | 
