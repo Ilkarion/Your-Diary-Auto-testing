@@ -56,8 +56,7 @@ Your-Diary-Auto-testing/
 │           ├── CreateEntryTests.java
 │           └── utils/
 │               ├── BaseTest.java
-│               ├── ScreenshotListener.java
-│               └── TestConfig.java
+│               └── ScreenshotListener.java
 │
 ├── .gitignore
 ├── pom.xml
