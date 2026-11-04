@@ -41,7 +41,7 @@ public class IntroPageTests extends BaseTest {
 
     @Test(priority = 1)
     public void change_application_language() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
         IntroPage introPage = new IntroPage(driver);
 
         // Switch language from Russian to English. Verify that the English language is applied correctly.
@@ -61,6 +61,10 @@ public class IntroPageTests extends BaseTest {
         wait.until(ExpectedConditions.elementToBeClickable(By
                         .xpath("//button[@aria-label=\"language\"]")))
                 .click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class=\"langMenu\"]")
+        ));
 
         wait.until(ExpectedConditions.elementToBeClickable(By
                         .xpath("//div[@class=\"langMenu\"]/a[@href=\"/ru\"]")))

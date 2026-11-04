@@ -14,6 +14,7 @@ public class IntroPage {
     private final By lang_en_address = By.xpath("//a[text()=\"EN\"]");
     private final By btn_change_theme_address = By.xpath("//button[@aria-label=\"toggle-theme\"]");
     private final String header1_address = "//h1[@class=\"headerHomePage\"]";
+    private final String menu_change_lang = "//div[@class=\"langMenu\"]";
 
     //Constructor
     public IntroPage(WebDriver driver) {
@@ -27,6 +28,9 @@ public class IntroPage {
 
     public WebElement getBtn_change_lang() {
         return driver.findElement(btn_change_lang_address);
+    }
+    public WebElement getMenu_change_lang() {
+        return driver.findElement(By.xpath(menu_change_lang));
     }
 
     public WebElement getBtn_lang_ru() {
