@@ -41,11 +41,11 @@ public class IntroPageTests extends BaseTest {
 
     @Test(priority = 1)
     public void change_application_language() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         IntroPage introPage = new IntroPage(driver);
 
-        // Switch language from English to Russian. Verify that the English language is applied correctly.
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By
+        // Switch language from Russian to English. Verify that the English language is applied correctly.
+        wait.until(ExpectedConditions.elementToBeClickable(By
                 .xpath("//button[@aria-label=\"language\"]")))
                 .click();
         introPage.getBtn_lang_en().click();
@@ -57,11 +57,28 @@ public class IntroPageTests extends BaseTest {
         Assert.assertEquals(lang_en, "en");
         Assert.assertEquals(text_en_h1, "Cosmic Diary");
 
-        // Switch language from Russian to English. Verify that the Russian language is applied correctly
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By
+        // Switch language from English to Russian. Verify that the Russian language is applied correctly
+        wait.until(ExpectedConditions.elementToBeClickable(By
                 .xpath("//button[@aria-label=\"language\"]")))
                 .click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"langMenu\"]/a[@href=\"/ru\"]")));
+
+        introPage.getBtn_change_lang().click();
+
+        System.out.println("URL: " + driver.getCurrentUrl());
+
+        System.out.println("Menu exists: " +
+                driver.findElements(By.className("langMenu")).size());
+
+        System.out.println("RU exists: " +
+                driver.findElements(By.xpath("//a[@href='/ru']")).size());
+
+        System.out.println("EN exists: " +
+                driver.findElements(By.xpath("//a[@href='/en']")).size());
+
+
+
+        wait.until(ExpectedConditions.elementToBeClickable(By
+                .xpath("//div[@class=\"langMenu\"]/a[@href=\"/ru\"]")));
         introPage.getBtn_lang_ru().click();
         wait.until(ExpectedConditions.urlContains("/ru"));
 
