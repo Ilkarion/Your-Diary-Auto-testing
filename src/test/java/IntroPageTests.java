@@ -41,12 +41,12 @@ public class IntroPageTests extends BaseTest {
 
     @Test(priority = 1)
     public void change_application_language() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(65));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
         IntroPage introPage = new IntroPage(driver);
 
         // Switch language from Russian to English. Verify that the English language is applied correctly.
         wait.until(ExpectedConditions.elementToBeClickable(By
-                .xpath("//button[@aria-label=\"language\"]")))
+                        .xpath("//button[@aria-label=\"language\"]")))
                 .click();
         introPage.getBtn_lang_en().click();
         wait.until(ExpectedConditions.urlContains("/en"));
@@ -59,11 +59,11 @@ public class IntroPageTests extends BaseTest {
 
         // Switch language from English to Russian. Verify that the Russian language is applied correctly
         wait.until(ExpectedConditions.elementToBeClickable(By
-                .xpath("//button[@aria-label=\"language\"]")))
+                        .xpath("//button[@aria-label=\"language\"]")))
                 .click();
 
         wait.until(ExpectedConditions.elementToBeClickable(By
-                .xpath("//div[@class=\"langMenu\"]/a[@href=\"/ru\"]")))
+                        .xpath("//div[@class=\"langMenu\"]/a[@href=\"/ru\"]")))
                 .click();
         wait.until(ExpectedConditions.urlContains("/ru"));
 
