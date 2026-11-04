@@ -62,21 +62,6 @@ public class IntroPageTests extends BaseTest {
                 .xpath("//button[@aria-label=\"language\"]")))
                 .click();
 
-        introPage.getBtn_change_lang().click();
-
-        System.out.println("URL: " + driver.getCurrentUrl());
-
-        System.out.println("Menu exists: " +
-                driver.findElements(By.className("langMenu")).size());
-
-        System.out.println("RU exists: " +
-                driver.findElements(By.xpath("//a[@href='/ru']")).size());
-
-        System.out.println("EN exists: " +
-                driver.findElements(By.xpath("//a[@href='/en']")).size());
-
-
-
         wait.until(ExpectedConditions.elementToBeClickable(By
                 .xpath("//div[@class=\"langMenu\"]/a[@href=\"/ru\"]")));
         introPage.getBtn_lang_ru().click();
