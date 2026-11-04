@@ -7,7 +7,7 @@ This is my automation QA project for my Fullstack app [YourDiary](https://github
 
 Java + Selenium + TestNG + Maven + test report: allure
 
-[Test Cases](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/test-cases.md) - [learned_new_stuff](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/i_learned.md) - [created_classes_code](https://github.com/Ilkarion/Your-Diary-Auto-testing/tree/main/src/main/java) - [tests_autom_execution_code](https://github.com/Ilkarion/Your-Diary-Auto-testing/tree/main/src/test/java)
+[Test Cases](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/test-cases.md) - [learned_new_stuff](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/i_learned.md) - [classes_code](https://github.com/Ilkarion/Your-Diary-Auto-testing/tree/main/src/main/java) - [tests_autom_execution_code](https://github.com/Ilkarion/Your-Diary-Auto-testing/tree/main/src/test/java)
 
 
 
@@ -21,8 +21,8 @@ Java + Selenium + TestNG + Maven + test report: allure
 | ![Passed Summary](imgs/passed_report.png) | ![Graphs](imgs/graphs.png) |
 | **4-Stream Testing** | **1-Stream Testing** |
 | ![4-Stream Report](imgs/4-stream-report.png) | ![1-Stream Report](imgs/report.png) |
-| **Test from CMD** | |
-| ![Command Line Report](imgs/report-run-from-commandLine.png) | |
+| **Test from CMD** | 
+| ![Command Line Report](imgs/report-run-from-commandLine.png) | 
 
 
 ## On this project, I learned:
