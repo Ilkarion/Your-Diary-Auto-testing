@@ -12,17 +12,13 @@ Java + Selenium + TestNG + Maven + test report: allure
 ## Example of **report** from Allure 
 
 
-Passed report        |  Attached image to bug by script
-:-------------------------:|:-------------------------:
-![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/passed_report2.png) | ![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/bug_report.png)
-
-Passed summary report        |  Graphs
-
-![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/passed_report.png) | ![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/graphs.png)
-4 Stream testing       |  1 Stream testing
-
-![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/4-stream-report.png) | ![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/report.png)
-Test from cmd      |  
-
-![](https://github.com/Ilkarion/Your-Diary-Auto-testing/blob/main/imgs/report-run-from-commandLine.png) 
+| Passed Report | Attached Image to Bug by Script |
+|:---:|:---:|
+| ![Passed Report](imgs/passed_report2.png) | ![Bug Report](imgs/bug_report.png) |
+| **Passed Summary Report** | **Graphs** |
+| ![Passed Summary](imgs/passed_report.png) | ![Graphs](imgs/graphs.png) |
+| **4-Stream Testing** | **1-Stream Testing** |
+| ![4-Stream Report](imgs/4-stream-report.png) | ![1-Stream Report](imgs/report.png) |
+| **Test from CMD** | |
+| ![Command Line Report](imgs/report-run-from-commandLine.png) | |
 
