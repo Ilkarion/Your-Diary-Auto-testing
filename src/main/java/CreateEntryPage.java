@@ -4,7 +4,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Objects;
@@ -151,24 +150,39 @@ public class CreateEntryPage {
 
     // Date Validation: We retrieve text from two fields and compare it to the generated current date in two formats
     public boolean verifyDefaultDates() {
+
         String uiDate1 = getDateField1().getAttribute("value");
-        if (uiDate1 == null || uiDate1.isEmpty()) {
-            uiDate1 = getDateField1().getText();
-        }
+        String uiDate2 = getDateField2().getText().trim();
 
-        String uiDate2 = getDateField2().getText();
+        // Get current date from browser
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
-        ZoneId appZone = ZoneId.of("Europe/Helsinki");
-        LocalDate today = LocalDate.now(appZone);
-        Locale ruLocale = Locale.forLanguageTag("ru");
+        String browserToday = (String) js.executeScript(
+                "const d = new Date();" +
+                        "return d.getFullYear() + '-' +" +
+                        "String(d.getMonth() + 1).padStart(2, '0') + '-' +" +
+                        "String(d.getDate()).padStart(2, '0');"
+        );
 
-        String expectedDateText = today.format(DateTimeFormatter.ofPattern("EEEE, d MMMM yyyy 'г.'", ruLocale)).toLowerCase().trim();
-        String expectedDateNum = today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        // Expected date in input
+        boolean isMatch1 = browserToday.equals(uiDate1);
 
-        // Проверяем гибко: каждое из полей на UI должно соответствовать либо текстовому, либо числовому формату
-        boolean isMatch1 = uiDate1.toLowerCase().trim().equals(expectedDateText) || uiDate1.trim().equals(expectedDateNum);
-        boolean isMatch2 = uiDate2.toLowerCase().trim().equals(expectedDateText) || uiDate2.trim().equals(expectedDateNum);
+        // Expected date in readable format
+        String currentLanguage = driver.getCurrentUrl().contains("/ru") ? "ru" : "en";
 
-        return isMatch1 && isMatch2 && !uiDate1.equals(uiDate2); // поля должны быть разными, но оба правильными
+        Locale locale = Locale.forLanguageTag(
+                currentLanguage.equals("ru") ? "ru-RU" : "en-US"
+        );
+
+        LocalDate today = LocalDate.parse(browserToday);
+
+        DateTimeFormatter formatter = currentLanguage.equals("ru")
+                ? DateTimeFormatter.ofPattern("EEEE, d MMMM yyyy 'г.'", locale)
+                : DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy", locale);
+
+        String expectedDateText = today.format(formatter);
+        boolean isMatch2 = expectedDateText.equalsIgnoreCase(uiDate2);
+
+        return isMatch1 && isMatch2;
     }
 }
