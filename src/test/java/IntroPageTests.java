@@ -62,9 +62,11 @@ public class IntroPageTests extends BaseTest {
                         .xpath("//button[@aria-label=\"language\"]")))
                 .click();
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//div[@class=\"langMenu\"]")
-        ));
+        while(!introPage.getMenu_change_lang().isEnabled()) {
+            wait.until(ExpectedConditions.elementToBeClickable(By
+                    .xpath("//button[@aria-label=\"language\"]")))
+                    .click();
+        }
 
         wait.until(ExpectedConditions.elementToBeClickable(By
                         .xpath("//div[@class=\"langMenu\"]/a[@href=\"/ru\"]")))
