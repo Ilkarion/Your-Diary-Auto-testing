@@ -25,8 +25,9 @@ Instead, it reuses the existing active browser window and simply overwrites the 
 ### TC-SIGN-02: invalid_email_format_validation
 - Standard browser validation popups(like 'invalid email format) are 
 not part of the standard DOM tree, and their text messages change automatically based on the 
-browser's language locale. 
-Also, we cant find them by.xpath()
+browser's language locale.
+ 
+Also, we can't find them by.xpath()
 
 **Solution:**
 
