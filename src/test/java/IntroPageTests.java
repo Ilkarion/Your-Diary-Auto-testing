@@ -49,7 +49,6 @@ public class IntroPageTests extends BaseTest {
 
 
         // Switch language from English to Russian. Verify that the English language is applied correctly.
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label=\"language\"]")));
         introPage.getBtn_lang_en().click();
         wait.until(ExpectedConditions.urlContains("/en"));
 

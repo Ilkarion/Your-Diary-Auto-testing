@@ -7,8 +7,8 @@
     <test name="IntroPage, SignPage, CreateEntry" >
         <classes>
             <class name="IntroPageTests" />
-<!--            <class name="SignPageTests" />-->
-<!--            <class name="CreateEntryTests" />-->
+            <class name="SignPageTests" />
+            <class name="CreateEntryTests" />
         </classes>
     </test>
 </suite>

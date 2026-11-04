@@ -20,9 +20,9 @@ public class ScreenshotListener implements ITestListener {
                 try {
                     byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
                     Allure.addAttachment("Screenshot on Failure", "image/png", new ByteArrayInputStream(screenshot), "png");
-                    System.out.println("[Listener] Скриншот успешно прикреплен к телу теста: " + result.getName());
+                    System.out.println("[Listener] The screenshot has been successfully attached to the test body: " + result.getName());
                 } catch (Exception e) {
-                    System.err.println("[Listener] Ошибка при создании скриншота: " + e.getMessage());
+                    System.err.println("[Listener] Error creating a screenshot: " + e.getMessage());
                 }
             }
         }
