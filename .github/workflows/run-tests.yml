@@ -14,6 +14,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      MY_GMAIL: ${{ secrets.MY_GMAIL }}
+      MY_GMAIL_PASSWORD: ${{ secrets.MY_GMAIL_PASSWORD }}
+
     steps:
       - name: Checkout Selenium Code
         uses: actions/checkout@v4
