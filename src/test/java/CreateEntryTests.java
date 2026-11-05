@@ -9,6 +9,8 @@ import utils.BaseTest;
 import java.time.Duration;
 
 public class CreateEntryTests extends BaseTest {
+    public static final String MY_GMAIL = System.getenv("MY_GMAIL");
+    public static final String MY_GMAIL_PASSWORD = System.getenv("MY_GMAIL_PASSWORD");
 
     //Helpers for fast sign in
     public void visibilityOfElementLocated(String address, String assertMessage) {
@@ -25,8 +27,6 @@ public class CreateEntryTests extends BaseTest {
         wait.until(ExpectedConditions.urlContains("/sign"));
 
         // Sign in with valid email and password
-        public static final String MY_GMAIL = System.getenv("MY_GMAIL");
-        public static final String MY_GMAIL_PASSWORD = System.getenv("MY_GMAIL_PASSWORD");
         signPage.enterEmail(MY_GMAIL);
         signPage.enterPassword(MY_GMAIL_PASSWORD);
         signPage.clickSubmitButton();
