@@ -23,7 +23,7 @@ public class CreateEntryTests extends BaseTest {
     public void sign_in_and_navigate_to_user_page() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(65));
         SignPage signPage = new SignPage(driver);
-        openPage("/sign");
+        openPage("/checkAuthUser");
         wait.until(ExpectedConditions.urlContains("/sign"));
 
         // Sign in with valid email and password

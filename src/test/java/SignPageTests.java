@@ -10,6 +10,8 @@ import utils.BaseTest;
 import java.time.Duration;
 
 public class SignPageTests extends BaseTest {
+    public static final String MY_GMAIL = System.getenv("MY_GMAIL");
+    public static final String MY_GMAIL_PASSWORD = System.getenv("MY_GMAIL_PASSWORD");
 
 
     @Test
@@ -66,7 +68,7 @@ public class SignPageTests extends BaseTest {
         signPage.enterEmail("invalid-email-format");
 
         // Enter a valid password into the Password field.
-        signPage.enterPassword("passworD_2006");
+        signPage.enterPassword(MY_GMAIL_PASSWORD);
 
         // Click the "Launch Into Space" button.
         signPage.clickSubmitButton();
@@ -86,7 +88,7 @@ public class SignPageTests extends BaseTest {
 
 
         // Enter valid Email format.
-        signPage.enterEmail("mastercomponents6@gmail.com");
+        signPage.enterEmail(MY_GMAIL);
 
         // Enter an invalid password.
         signPage.enterPassword("12356D_204");
