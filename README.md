@@ -16,7 +16,7 @@ The main goal of this project is to practise and demonstrate UI test automation 
 | **4-Stream Testing** | **1-Stream Testing** |
 | ![4-Stream Report](imgs/4-stream-report.png) | ![1-Stream Report](imgs/report.png) |
 | **Test from CMD** | 
-| ![Command Line Report](imgs/report-run-from-commandLine.png) | 
+| ![Command Line Report](imgs/report-run-from-commandLine.png) | > Note: This project uses a free-tier database. Occasional test timeouts may occur during CI/CD runs due to resource limits, which realistically simulates real-world network bottlenecks.
 
 ## Tech Stack
 
